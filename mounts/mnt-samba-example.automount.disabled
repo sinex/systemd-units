@@ -1,0 +1,10 @@
+[Unit]
+Description=samba automount: example
+Requires=network-online.target
+
+[Automount]
+Where=/mnt/samba/example
+TimeoutIdleSec=0
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Jupyter Notebook
+Requires=local-fs.target
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/local/bin/jupyter-notebook --notebook-dir /home/%i/src/notebooks/
+User=%i
+
+[Install]
+WantedBy=multi-user.target
