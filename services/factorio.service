@@ -1,0 +1,22 @@
+[Unit]
+Description=Factorio Server
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+User=factorio
+Group=factorio
+
+ExecStart=/home/factorio/factorio-init/factorio start
+ExecStop=/home/factorio/factorio-init/factorio stop
+
+Type=forking
+PIDFile=/home/factorio/data/server.pid
+
+TimeoutStartSec=20
+TimeoutStopSec=20
+RestartSec=20
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
