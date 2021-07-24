@@ -55,9 +55,12 @@ RESTART_TARGETS   := local-fs.target remote-fs.target
 default: help
 
 help:
-	@echo "make install                   |  Install all units"
-	@echo "make uninstall                 |  Remove installed units"
-	echo $(INSTALL_TARGETS)
+	@echo "Usage: make [action]"
+	@echo ""
+	@echo "make help      │ Show this page"
+	@echo "make preview   │ List all configured units for this host"
+	@echo "make install   │ Install all units"
+	@echo "make uninstall │ Remove installed units"
 
 preview:
 	@echo "Targets for host '$(HOSTNAME)':"
