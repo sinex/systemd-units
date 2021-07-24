@@ -1,0 +1,3 @@
+SERVICES   := jupyter-notebook
+
+GENERATORS := samba-automount-generator.sh

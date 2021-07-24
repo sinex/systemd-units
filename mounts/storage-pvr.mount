@@ -1,0 +1,14 @@
+[Unit]
+Description=Mount PVR Storage
+Requires=network-online.service
+After=network-online.service
+Before=kodi.service
+
+[Mount]
+What=//samba/pvr
+Where=/storage/pvr
+Options=username=pvr,password=pvr,rw
+Type=cifs
+
+[Install]
+WantedBy=multi-user.target

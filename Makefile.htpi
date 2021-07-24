@@ -1,0 +1,4 @@
+# LibreELEC systemd path
+UNIT_INSTALL_PATH := /storage/.config/system.d
+
+MOUNTS := storage-pvr
