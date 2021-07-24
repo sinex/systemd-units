@@ -1,0 +1,17 @@
+# plexdrive.service
+#
+# Mount a remote cloud share. Designed for Plex
+
+[Unit]
+Description=Plexdrive
+AssertPathIsDirectory=/media/plexdrive
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/plexdrive mount -o allow_other -v2 --root-node-id='<ROOT_NODE_ID>' /media/plexdrive
+ExecStop=/bin/umount -l /media/plexdrive
+Restart=on-abort
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,18 @@
+# ps3netsrv.service
+#
+# Playstation 3 Network Server (ps3netsrv) Service
+
+[Unit]
+Description=Start Playstation 3 Network Server (ps3netsrv)
+After=network-online.target
+
+[Service]
+Type=simple
+User=ps3netsrv
+ExecStart=/usr/local/bin/ps3netsrv /home/ps3netsrv
+Restart=always
+StandardOutput=syslog+console
+StandardError=syslog+console
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+# localslackirc.service
+#
+# Start localslackirc
+
+[Unit]
+Description=localslackirc Slack-IRC bridge
+After=network-online.target ssh.service
+
+[Service]
+ExecStart=/usr/bin/localslackirc -j
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

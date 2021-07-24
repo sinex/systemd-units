@@ -1,0 +1,27 @@
+# rclone.service
+#
+# Mount an rclone remote. Configured to use the 'cache' remote type
+
+Description=RClone Mount Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount plexcache: /gdrive/Plex \
+    --config /root/.rclone.conf \
+    --allow-other \
+    --cache-tmp-upload-path /gdrive/upload_cache \
+    --cache-tmp-wait-time 10m \
+    --cache-dir /gdrive/cache/vfs \
+    --cache-db-path /gdrive/cache/plexcache \
+    --cache-chunk-path /gdrive/cache/plexcache \
+    --syslog \
+    --umask 002 \
+    --rc \
+    --log-level INFO
+ExecStop=/usr/bin/fusermount -uz /gdrive/Plex
+Restart=always
+
+[Install]
+WantedBy=default.target

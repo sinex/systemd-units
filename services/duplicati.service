@@ -1,0 +1,11 @@
+[Unit]
+Description=Duplicati Web Service
+After=network.target
+ 
+[Service]
+EnvironmentFile=-/etc/default/duplicati
+ExecStart=/opt/duplicati/duplicati-server --webservice-port=8200 --webservice-interface=any
+ 
+[Install]
+WantedBy=multi-user.target
+

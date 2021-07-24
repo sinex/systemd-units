@@ -1,0 +1,20 @@
+[Unit]
+Description=Bitwarden Server (Rust Edition)
+Documentation=https://github.com/dani-garcia/bitwarden_rs
+After=network.target
+
+[Service]
+User=bitwarden_rs
+Group=bitwarden_rs
+EnvironmentFile=/home/bitwarden_rs/.env
+ExecStart=/usr/local/bin/bitwarden_rs
+#LimitNOFILE=1048576
+#LimitNPROC=64
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+WorkingDirectory=/home/bitwarden_rs
+ReadWriteDirectories=/home/bitwarden_rs
+
+[Install]
+WantedBy=multi-user.target

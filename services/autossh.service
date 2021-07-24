@@ -1,0 +1,17 @@
+# autossh.service
+#
+# Set up a permanent SSH connection
+
+[Unit]
+Description=Create a persistant SSH connection
+After=network-online.target ssh.service
+
+[Service]
+User=autossh
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -M 0 -T -N ashram
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
